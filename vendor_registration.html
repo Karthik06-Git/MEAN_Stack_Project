@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="vendor-page">
+    <div id="vendorForm" class="vendorForm">
+        <h2>Vendor Registration</h2>
+        <form id="vendorRegistration">
+            <div class="form-group">
+                <label for="shopName">Name of Shop</label>
+                <input type="text" id="shopName" name="shopName" required placeholder="Enter shop name">
+            </div>
+
+            <div class="form-group">
+                <label for="shopType">Shop Type</label>
+                <select id="shopType" name="shopType" required>
+                    <option value="" disabled selected>Select shop type</option>
+                    <option value="medicine">Medicine</option>
+                    <option value="grocery">Grocery</option>
+                    <option value="fruits">Fruits</option>
+                    <option value="fashion">Vegetables</option>
+                    <option value="books">Food</option>
+                    <option value="electronics">Electronics</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required placeholder="Enter shop address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm password">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+
+            <button type="submit" id="submitBtn">Register</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

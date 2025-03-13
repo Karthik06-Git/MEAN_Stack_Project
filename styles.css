@@ -1,0 +1,645 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Home Page CSS */
+
+#home-page {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: rgb(212, 74, 15);
+    margin: 0;
+}
+
+#home-page .nav-bar {
+    background-color: white; /* Purple background */
+    color: rgb(15, 151, 224);
+    display: flex;
+    justify-content: space-between; /* Align items to the ends */
+    padding: 10px 20px;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    
+}
+
+#home-page .nav-bar {
+    border-bottom: 2px solid rgb(15, 151, 224); /* Light gray border */
+}
+
+#home-page .nav-bar .logo img {
+    align-items: left;
+    height: 40px; /* Adjust logo image size */
+}
+
+#home-page .nav-bar ul li {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin: 0 15px; /* Adjusted margin for better spacing */
+}
+
+#home-page .nav-bar #nav-links a {
+    color: rgb(15, 151, 224);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#home-page .nav-bar #nav-links li a:link, a:visited{
+    color: rgb(15, 151, 224);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+#home-page .nav-bar #nav-links li a:hover, a:active {
+    color: purple;
+    transform: scaleY(1.15);
+}
+
+#home-page .nav-bar #home_link {
+    text-decoration: none;
+    position: absolute;
+    top: 30px;
+    right: 430px;
+    font-size: 16px;
+}
+#home-page .nav-bar #home_link::after {
+    left: 0;
+    transition: 0.4s;
+}
+
+#home-page .nav-bar #login_link {
+    text-decoration: none;
+    position: absolute;
+    top: 30px; 
+    right: 290px; 
+}
+
+#home-page .nav-bar #nav-links .dropdown-registration {
+    text-decoration: none;
+    position: absolute;
+    top: 25px; 
+    right: 160px; 
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#home-page .nav-bar #nav-links .dropdown-registration p {
+    margin: 0;
+    padding: 5px 5px;
+    color: rgb(15, 151, 224);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#home-page .nav-bar #nav-links .dropdown-registration p:hover {
+    margin: 0;
+    padding: 5px 10px;
+    color: purple;
+    font-size: 16px;
+    cursor: pointer;
+    transform: scaleY(0);
+}
+
+#home-page .nav-bar #nav-links .dropdown-registration .dropdown-content {
+    display: none; 
+    position: absolute;
+    transform: scaleY(1.05);
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    width: 130px; 
+    border-radius: 5px;
+    top: 30px;
+}
+#home-page .nav-bar #nav-links .dropdown-registration:hover .dropdown-content {
+    display: block;
+}
+
+#home-page .nav-bar #nav-links .dropdown-registration .dropdown-content a {
+    color: #333;
+    padding: 5px 10px;
+    font-size: 13px;
+    text-decoration: none;
+    display: block;
+}
+
+#home-page .nav-bar .dropdown-registration .dropdown-content a:hover {
+    background-color: lightblue;
+}
+
+#home-page .nav-bar #about_link{
+    text-decoration: none;
+    position: absolute;
+    top: 30px; 
+    right: 60px; 
+    font-size: 16px;
+}
+
+
+/* Carousel Container */
+#home-page .carousel-container {
+    display: flex;
+    margin-top: 60px;
+    padding: 20px;
+    height: 300px;
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    background-color: #cce4f7;
+}
+
+#home-page .carousel-container .text-container {
+    width: 40%;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    padding: 20px;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden; /* Prevent content from spilling out */
+}
+
+#home-page .carousel-container .text-container .text-item {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    transform: scale(0.8);
+}
+
+#home-page .carousel-container .text-container .text-item.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 1;
+}
+
+#home-page .carousel-container .carousel-images {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    height: 320px;
+}
+
+#home-page .carousel-container .carousel-images img {
+    width: 340px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    position: absolute;
+    top: 48%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+#home-page .carousel-container .carousel-images img.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Feature Boxes */
+#home-page .feature-boxes {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    border: 3px solid #053362;
+    padding: 50px;
+    text-align: center;
+}
+
+#home-page .feature-boxes h2 {
+    text-align: center;
+    text-decoration: None;
+    position: absolute;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+#home-page .feature-boxes .box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+#home-page .box {
+    width: 360px;
+    height: 240px;
+    border: 3px solid #03498f;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#home-page .box h3 {
+    font-size: 28px;
+    color: #040e3f;
+    font-weight: bold;
+}
+
+
+
+
+/* Stats Bar */
+#home-page .stats-bar {
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    background-color: #1e90ff; /* Dark blue background */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#home-page .stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#home-page .stats-item, .rating-container {
+    flex: 1;
+    background-color: #9c1d85; /* Dark blue background for items */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 0 10px;
+}
+
+#home-page .stats-item h2 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#home-page .rating-container {
+    background-color: #841670;
+}
+
+#home-page .rating-stars {
+    font-size: 36px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+#home-page .rating-stars .empty-star {
+    color: #ddd;
+}
+
+#home-page .rating-stars .half-star {
+    position: relative;
+    display: inline-block;
+}
+
+#home-page .rating-stars .half-star:before {
+    content: '★';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #FFD700;
+}
+
+/* About us section*/
+#home-page .about-section {
+    padding: 40px;
+    background-color: #cce4f7;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+#home-page .about-section h2 {
+    text-decoration: underline;
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+#home-page .about-section h4 {
+    color: #2c3e50;
+    text-decoration: underline;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+#home-page .about-section p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+#home-page .contact-info {
+    margin-top: 25px;
+    font-size: 17px;
+}
+#home-page .contact-info h4 {
+    color: #2c3e50;
+    text-decoration: underline;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+#home-page .contact-info .social-icons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#home-page .contact-info .social-icons a {
+    margin: 0 12px;
+    color: #2c3e50;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+#home-page .contact-info .social-icons a:hover {
+    color: #007bff;
+}
+#home-page .contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Login Page CSS */
+
+#login-page {
+    font-family: Arial, sans-serif;
+    background-image: url('https://www.donracks.co.in/blog/wp-content/uploads/2022/06/Red-Shopping-Cart.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+}
+
+#login-page .login-container {
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for background */
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    width: 300px;
+}
+
+#login-page #loginForm {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#login-page h2 {
+    text-align: center;
+    color: black; 
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+#login-page .input-group {
+    margin-bottom: 20px;
+}
+
+
+
+#login-page select {
+    width: 150px;
+} 
+
+#login-page label {
+    
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+#login-page input {
+    width: 93%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#login-page button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#login-page button:hover {
+    background-color: #45a049;
+}
+
+#login-page .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+/* Registration Pages */
+
+/* Vendor Registration*/
+
+#vendor-page {
+    font-family: Arial, sans-serif;
+    background-image: url('https://www.donracks.co.in/blog/wp-content/uploads/2022/06/Red-Shopping-Cart.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vendor-page .vendorForm{
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for background */
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    width: 400px;
+}
+
+#vendor-page h2 {
+    text-align: center;
+    color: black; 
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+
+#vendor-page .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#vendor-page label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold; 
+}
+
+#vendor-page input, 
+#vendor-page textarea, 
+#vendor-page select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px; 
+    box-sizing: border-box; 
+}
+
+#vendor-page textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+#vendor-page button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#vendor-page button:hover {
+    background-color: #45a049;
+}
+
+/*Customer Registration*/
+
+#customer-page {
+    font-family: Arial, sans-serif;
+    background-image: url('https://www.donracks.co.in/blog/wp-content/uploads/2022/06/Red-Shopping-Cart.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#customer-page .customerForm{
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for background */
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    width: 400px;
+}
+
+#customer-page h2 {
+    text-align: center;
+    color: black; 
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adds a shadow to make it pop */
+}
+
+
+#customer-page .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#customer-page label {
+    display: block;
+    margin-bottom: 2px;
+    color: #555;
+    font-weight: bold; 
+}
+
+#customer-page input, 
+#customer-page textarea, 
+#customer-page select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px; /* Uniform font size */
+    box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
+
+#customer-page textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+#customer-page button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box; /* Consistent width and height with padding */
+}
+
+#customer-page button:hover {
+    background-color: #45a049;
+}

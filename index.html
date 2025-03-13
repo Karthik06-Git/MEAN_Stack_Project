@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Mart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="carousel_image_text_script.js"></script>
+</head>
+<body id="home-page">
+
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3IqjiZrPvq8h9PY9skcRJA1RVIY6BeZN7Tw&s" alt="MatchMart Logo">
+        </div>
+        <ul id="nav-links">
+            <li><a href="#" id="home_link">Home</a></li>
+            <li><a href="login.html" id="login_link">Login/SignIn</a></li>
+            <li>
+                <div class="dropdown-registration">
+                    <p>Registration</p>
+                    <div class="dropdown-content">
+                      <a href="vendor_registration.html">Register as Vendor</a>
+                      <a href="customer_registration.html">Register as Customer</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#AboutUs-page" id="about_link">About Us</a></li> 
+        </ul>
+    </nav>
+
+    <!-- Carousel with Images and Text -->
+    <div class="carousel-container">
+        <div class="text-container">
+            <div class="text-item show">
+                <i class="fas fa-shopping-cart"></i> <!-- Shopping cart icon for Snap and Shop -->
+                <div>Snap and Shop</div>
+                <div>Find Best Deals</div>
+            </div>
+            <div class="text-item">
+                <i class="fas fa-box-open"></i> <!-- Box icon for Discover New Products -->
+                <div>Discover New Products</div>
+                <div>Shop Easily</div>
+            </div>
+            <div class="text-item">
+                <i class="fas fa-tags"></i> <!-- Tags icon for Explore New Trends -->
+                <div>Explore New Trends</div>
+                <div>Save Money Today</div>
+            </div>
+            <div class="text-item">
+                <i class="fas fa-bell"></i> <!-- Bell icon for Get The Latest Offers -->
+                <div>Get The Latest Offers</div>
+                <div>Never Miss Out</div>
+            </div>
+        </div>
+        <div class="carousel-images">
+            <img src="https://img.freepik.com/free-photo/concept-vacation-finance-happy-man-shopper-looking-shopping-bags-satisfied-showing-credit-card-standing-against-yellow-background_1258-73644.jpg" alt="Image 1" class="show">
+            <img src="https://img.freepik.com/premium-photo/woman-shopper-happy-with-phone-grocery-department-browsing-shopping-list-online-app-choosing_321831-14101.jpg" alt="Image 2">
+            <img src="https://thumbnails.yayimages.com/1600/10/ef0/10ef00f4.jpg" alt="Image 3">
+            <img src="https://www.fatbit.com/fab/wp-content/uploads/2020/06/onlne-grocery-business.png" alt="Image 4">
+        </div>
+    </div>
+
+    <!--Main Features--> 
+    <div class="feature-boxes">
+        <h2>Shop Categories</h2>
+        <div class="box-container">
+            <div class="box" id="grocery">
+                <h3>Grocery</h3>
+            </div>
+            <div class="box" id="electric">
+                <h3>Electric</h3>
+            </div>
+            <div class="box" id="fruits">
+                <h3>Fruits</h3>
+            </div>
+            <div class="box" id="medicine">
+                <h3>Medicine</h3>
+            </div>
+            <div class="box" id="fashion">
+                <h3>Fashion</h3>
+            </div>
+            <div class="box" id="books">
+                <h3>Books</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Bar -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stats-item" id="vendor-count">
+                <h2>1000</h2>
+                <p>Vendors</p>
+            </div>
+            <div class="rating-container">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty-star"></i>
+                </div>
+                <p>4.0 Average Rating</p>
+            </div>
+            <div class="stats-item" id="customer-count">
+                <h2>3000</h2>
+                <p>Customers</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About us -->
+    <div class="about-section" id="AboutUs-page">
+        <h2>About MATCHMART</h2>
+        <p>
+            At MatchMart, we bridge the gap between shoppers and local vendors, making product discovery effortless and shopping local easier than ever before.
+            It is useful for finding specific products in local stores without driving all over town. 
+            Our founders, tired of wasted trips and phone calls to check inventory, envisioned a platform where shoppers could instantly connect with nearby vendors who carry exactly what they need.
+        </p>
+        <h4>Our Mission</h4>
+        <p>
+            To revolutionize local shopping by creating a community where:<br>
+            
+            <i>Shoppers save time and fuel by knowing exactly where to find products,<br>
+            Local businesses increase visibility and connect with motivated customers,<br>
+            Communities thrive through stronger local economies.</i><br>
+        </p>
+
+        <div class="contact-info">
+            <h4>Contact Us</h4>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://telegram.org" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:contact@quickpick.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+1234567890" target="_blank" title="Call Us"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>
+                Email: <a href="mailto:contact@quickpick.com">contact@quickpick.com</a><br>
+                Call: <a href="tel:+1234567890">+123-456-7890</a><br>
+                WhatsApp: <a href="https://wa.me/1234567890">+123-456-7890</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
