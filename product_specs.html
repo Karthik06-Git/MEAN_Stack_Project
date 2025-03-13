@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Info</title>
+    <style>
+        body {
+            background-image: url('https://images.theconversation.com/files/137181/original/image-20160909-13353-19x3vc.jpg?ixlib=rb-4.1.0&rect=0%2C359%2C2995%2C1455&q=45&auto=format&w=1356&h=668&fit=crop'); /* Replace with actual image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: rgb(186, 221, 232, 0.8);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: black; 
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+        }
+        input, select, button {
+            width: 280px;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body id="product-specs">
+    <div class="container">
+        <h2>Pharmacy Product Details</h2>
+        <form>
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" placeholder="Enter product name" required>
+
+            <label for="brand">Brand</label>
+            <input type="text" id="brand" placeholder="Enter brand name" required>
+
+            <label for="shop-type">Shop Type</label>
+            <select id="shop-type" name="shop_type" class="form-control" required>
+                <!--<option value="" disabled selected>Select your shop type</option>-->
+                <option value="Grocery">Grocery</option>
+                <option value="Pharmacy" selected>Pharmacy</option>
+                <option value="Electricals">Electricals</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Bakery and Pastry">Bakery and Pastry</option>
+                <option value="Books">Books</option>
+                <option value="Clothing and Fashions">Clothing and Fashions</option>
+                <option value="Fancy Items">Fancy Items</option>
+            </select>
+            
+            <label for="product-image">Product Image</label>
+            <input type="file" id="product-image" accept="image/*">
+            <img id="preview" src="#" alt="Product Image Preview" style="display:none;">
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>
