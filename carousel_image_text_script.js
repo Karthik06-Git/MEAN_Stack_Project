@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start with first slide
     showSlide(0);
     
-    // Auto-advance slides every 5 seconds
-    setInterval(nextSlide, 5000);
+    // Auto-advance slides every 4 seconds
+    setInterval(nextSlide, 4000);
 });
