@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="productApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Bajaj Electronics - Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- AngularJS --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+        }
+
+        .navbar a {
+            color: rgb(15, 151, 224);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding-right: 40px;
+        }
+
+        .navbar a:hover, a:active {
+            color: purple;
+            transform: scaleY(1.05);
+        }
+
+        .main-section {
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
+
+        .main-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .main-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            aspect-ratio: 4/3; /* maintain perfect aspect ratio */
+            background-color: #fff;
+        }
+
+
+        .search-bar {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px 15px;
+            margin: 20px auto;
+            display: block;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body ng-controller="ProductController">
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3IqjiZrPvq8h9PY9skcRJA1RVIY6BeZN7Tw&s" alt="MatchMart Logo">
+        </div>
+        <div>
+            <a href="shops_near_by.html">Back-to-shops</a>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+    <div class="main-section">
+        <h1>Products at Bajaj Electronics</h1>
+        <p>Explore top electronic appliances here!</p>
+
+    <!-- Search Bar -->
+    <input type="text" ng-model="searchQuery" placeholder="Search products..." class="search-bar">
+
+    <div class="product-grid">
+        <div class="product-card" ng-repeat="product in products | filter:searchQuery">
+            <img ng-src="{{product.image_url}}" alt="{{product.name}}">
+            <div class="product-info">
+                <h3>{{product.name}}</h3>
+                <p>{{product.type}}</p>
+                <p>Price: {{product.price}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        app = angular.module('productApp', []);
+        app.controller('ProductController', function($scope) {
+            $scope.products = [
+                {
+                    name: "Xiaomi X TV",
+                    type: "Television",
+                    price: "₹24,990",
+                    image_url: "https://i03.appmifile.com/301_item_in/19/11/2024/93b646d1f13a9404d9958ea77762c9be.png"
+                },
+                {
+                    name: "LG 1.5 Front load Washing Machine",
+                    type: "Washing Machine",
+                    price: "₹38,499",
+                    image_url: "https://sumaria.in/wp-content/uploads/2023/10/FHD1107STB.jpg"
+                },
+                {
+                    name: "Voltas 1 Ton 3 Star Window AC",
+                    type: "Air Conditioner",
+                    price: "₹24,790",
+                    image_url: "https://5.imimg.com/data5/UD/CD/UD/ANDROID-2577822/prod-20200725-2212247928036451076505197-jpg.jpg"
+                },
+                {
+                    name: "Samsung 1 ton 5 star AC",
+                    type: "Air Conditioner",
+                    price: "₹23,999",
+                    image_url: "https://5.imimg.com/data5/IC/LW/MY-13284835/samsung-1-5ton-3star-split-ac.jpg"
+                },
+                {
+                    name: "Samsung 32-inch Smart LED TV",
+                    type: "Television",
+                    price: "₹15,999",
+                    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI0aX74AWoypKkFEN9BnBhcOY2dhbh7x76PA&s"
+                },
+                {
+                    name: "IFB Frontload Washing Machine",
+                    type: "Washing Machine",
+                    price: "₹25,990",
+                    image_url: "https://mediakbs.s3.ap-south-1.amazonaws.com/uploads/all/B0CB1FS1WR"
+                }
+            ];
+        });
+    </script>
+
+</body>
+</html>

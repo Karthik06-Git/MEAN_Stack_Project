@@ -93,6 +93,11 @@
             object-fit: cover;
         }
 
+        .vendor-card a {
+            text-decoration: none;
+            color: white;
+        }
+
         .vendor-info {
             padding: 15px;
         }
@@ -125,13 +130,15 @@
 
         <div class="vendor-grid">
             <div class="vendor-card" ng-repeat="vendor in vendors">
-                <img ng-src="{{vendor.image_url}}" alt="{{vendor.name}}">
-                <div class="vendor-info">
-                    <h3>{{vendor.name}}</h3>
-                    <p>{{vendor.store_type}}</p>
-                    <p>{{vendor.distance}}</p>
-                    <p>{{vendor.address}}</p>
-                </div>
+                <a href="products_available_at_shop.html">
+                    <img ng-src="{{vendor.image_url}}" alt="{{vendor.name}}">
+                    <div class="vendor-info">
+                        <h3>{{vendor.name}}</h3>
+                        <p>{{vendor.store_type}}</p>
+                        <p>{{vendor.distance}}</p>
+                        <p>{{vendor.address}}</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
