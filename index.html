@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mainApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Mart</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- AngularJS --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="carousel_image_text_script.js"></script>
 </head>
-<body id="home-page"> 
+<body id="home-page" ng-controller="MainController"> 
 
     <nav class="nav-bar">
         <div class="logo">
@@ -66,75 +69,12 @@
     <div class="feature-boxes">
         <h2>Shop Categories</h2>
         <div class="box-container">
-            <div class="box" id="grocery">
-                <a href="#">
-                    <img src="https://content.jdmagicbox.com/comp/eluru/r2/9999p8812.8812.121126090651.c1r2/catalogue/more-for-you-eluru-ho-eluru-supermarkets-senrkim.jpg" alt="grocery-img">
-                    <div class="overlay">
-                        <h3>Grocery</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="box" id="pharmacy">
-                <a href="product_specs.html">
-                    <img src="https://images.theconversation.com/files/137181/original/image-20160909-13353-19x3vc.jpg?ixlib=rb-4.1.0&rect=0%2C359%2C2995%2C1455&q=45&auto=format&w=1356&h=668&fit=crop" alt="pharmacy-img">
-                    <div class="overlay">
-                        <h3>Pharmacy</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="box" id="electricals_and_electronics">
+
+            <div class="box" id={{shop.id}} ng-repeat="shop in shops">
                 <a href="shops_near_by.html">
-                    <img src="https://eepower.com/uploads/articles/CIS_Figure_2.png" alt="electricals-img">
+                    <img ng-src={{shop.image_url}} alt={{shop.alt_img_name}}>
                     <div class="overlay">
-                        <h3>Electricals & Electronics</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="box" id="fruits">
-                <a href="#">
-                    <img src="https://media.licdn.com/dms/image/D5612AQGAk2Y59QAhhg/article-cover_image-shrink_720_1280/0/1709027102524?e=2147483647&v=beta&t=ecBTeuOlEoZP8gYSgnEc7-pCnTk5OlxhXEybp1vdQ8A" alt="fruits-img">
-                    <div class="overlay">
-                        <h3>Fruits</h3>
-                    </div> 
-                </a>
-            </div>
-            <div class="box" id="vegetables">
-                <a href="#">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdWmpBbTPbH_nylKrUPUJdrYAetm6NTwY_qg&s" alt="vegetables-img">
-                    <div class="overlay">
-                        <h3>Vegetables</h3>
-                    </div> 
-                </a>
-            </div>
-            <div class="box", id="bakery">
-                <a href="#">
-                    <img src="https://media.istockphoto.com/id/497959594/photo/fresh-cakes.jpg?s=612x612&w=0&k=20&c=T1vp7QPbg6BY3GE-qwg-i_SqVpstyHBMIwnGakdTTek=" alt="bakery-img">
-                    <div class="overlay">
-                        <h3>Bakery & Pastry</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="box" id="books">
-                <a href="#">
-                    <img src="https://www.popsci.com/wp-content/uploads/2024/07/buy_physical_books.jpg?quality=85" alt="books-img">
-                    <div class="overlay">
-                        <h3>Books</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="box" id="fashions">
-                <a href="#">
-                    <img src="https://omnitail.net/wp-content/uploads/2021/06/amazon-clothes-sm.png" alt="fashions-img">
-                    <div class="overlay">
-                        <h3>Clothing & Fashions</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="box" id="fancy-items">
-                <a href="#">
-                    <img src="https://c8.alamy.com/comp/J39J2H/st-ives-cornwall-uk-april-3-2017-colourful-homeware-items-for-sale-J39J2H.jpg" alt="fancy_items-img">
-                    <div class="overlay">
-                        <h3>Fancy Items</h3>
+                        <h3>{{shop.shop_type}}</h3>
                     </div>
                 </a>
             </div>
@@ -202,6 +142,68 @@
             </p>
         </div>
     </div>
+
+    <script>
+        app = angular.module('mainApp', [])
+        app.controller('MainController', function($scope) {
+            $scope.shops = [
+                {
+                    id: "grocery",
+                    shop_type: "Grocery",
+                    image_url: "https://content.jdmagicbox.com/comp/eluru/r2/9999p8812.8812.121126090651.c1r2/catalogue/more-for-you-eluru-ho-eluru-supermarkets-senrkim.jpg",
+                    alt_img_name: "grocery-image"
+                },
+                {
+                    id: "pharmacy",
+                    shop_type: "Pharmacy",
+                    image_url: "https://images.theconversation.com/files/137181/original/image-20160909-13353-19x3vc.jpg?ixlib=rb-4.1.0&rect=0%2C359%2C2995%2C1455&q=45&auto=format&w=1356&h=668&fit=crop",
+                    alt_img_name: "pharmacy-image"
+                },
+                {
+                    id: "electricals_and_electronics",
+                    shop_type: "Electricals & Electronics",
+                    image_url: "https://eepower.com/uploads/articles/CIS_Figure_2.png",
+                    alt_img_name: "electricals-and-electronics-image"
+                },
+                {
+                    id: "fruits",
+                    shop_type: "Fruits",
+                    image_url: "https://media.licdn.com/dms/image/D5612AQGAk2Y59QAhhg/article-cover_image-shrink_720_1280/0/1709027102524?e=2147483647&v=beta&t=ecBTeuOlEoZP8gYSgnEc7-pCnTk5OlxhXEybp1vdQ8A",
+                    alt_img_name: "fruits-image"
+                },
+                {
+                    id: "vegetables",
+                    shop_type: "Vegetables",
+                    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdWmpBbTPbH_nylKrUPUJdrYAetm6NTwY_qg&s",
+                    alt_img_name: "vegetables-image"
+                },
+                {
+                    id: "bakery_and_pastry",
+                    shop_type: "Bakery & Pastry",
+                    image_url: "https://media.istockphoto.com/id/497959594/photo/fresh-cakes.jpg?s=612x612&w=0&k=20&c=T1vp7QPbg6BY3GE-qwg-i_SqVpstyHBMIwnGakdTTek=",
+                    alt_img_name: "bakery-and-pastry-image"
+                },
+                {
+                    id: "books",
+                    shop_type: "Books",
+                    image_url: "https://www.popsci.com/wp-content/uploads/2024/07/buy_physical_books.jpg?quality=85",
+                    alt_img_name: "books-image"
+                },
+                {
+                    id: "clothing_and_fashions",
+                    shop_type: "Clothing & Fashions",
+                    image_url: "https://omnitail.net/wp-content/uploads/2021/06/amazon-clothes-sm.png",
+                    alt_img_name: "clothing-and-fashions-image"
+                },
+                {
+                    id: "fancy_items",
+                    shop_type: "Fancy Items",
+                    image_url: "https://c8.alamy.com/comp/J39J2H/st-ives-cornwall-uk-april-3-2017-colourful-homeware-items-for-sale-J39J2H.jpg",
+                    alt_img_name: "fancy-items-image"
+                }
+            ];
+        });
+    </script>
 
 </body>
 </html>
