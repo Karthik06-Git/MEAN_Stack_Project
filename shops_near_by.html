@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="categoryApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Shops Near You</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo img {
+            align-items: left;
+            height: 40px; /* Adjust logo image size */
+        }
+
+        .navbar a {
+            color: rgb(15, 151, 224);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding-right: 40px;
+        }
+
+        .navbar a:link, a:visited{
+            color: rgb(15, 151, 224);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .navbar a:hover, a:active {
+            color: purple;
+            transform: scaley(1.05);
+        }
+
+        .main-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .main-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .main-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .vendor-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .vendor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vendor-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .vendor-info {
+            padding: 15px;
+        }
+
+        .vendor-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .vendor-info p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body ng-controller="CategoryController">
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3IqjiZrPvq8h9PY9skcRJA1RVIY6BeZN7Tw&s" alt="MatchMart Logo">
+        </div>
+        <div>
+            <a href="index.html">Back-to-home</a>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+    <div class="main-section">
+        <h1>Electrical & Electronic Shops Near You</h1>
+        <p>We found these stores ...</p>
+
+        <div class="vendor-grid">
+            <div class="vendor-card" ng-repeat="vendor in vendors">
+                <img ng-src="{{vendor.image_url}}" alt="{{vendor.name}}">
+                <div class="vendor-info">
+                    <h3>{{vendor.name}}</h3>
+                    <p>{{vendor.store_type}}</p>
+                    <p>{{vendor.distance}}</p>
+                    <p>{{vendor.address}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        app = angular.module('categoryApp', [])
+        app.controller('CategoryController', function($scope) {
+            $scope.vendors = [
+                {
+                    name: "Kumar Electronics",
+                    store_type: "Electronic Shop",
+                    distance: "2 KM",
+                    address: "22-2-155, PP Rd, Gandhinagar, Bhimavaram, Andhra Pradesh",
+                    image_url: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB-S9Sm8VmW_cRMPWXSzvsACr4vNCk9ZaCTqcwcT-dcCLMgTXlCjCXII48ohmHW55zEbXAyLPVl4z4VLmFWI55zQ3qevjkxBcnxzVpRQrrkaC1trFt2Et9tlsRrSI1nxUxK0FWxWvg=s1360-w1360-h1020-rw"
+                },
+                {
+                    name: "SparkLite Solutions",
+                    store_type: "Electric Shop",
+                    distance: "1.5 KM",
+                    address: "Nataraj theatre opp., JP Road, Bhimavaram, Andhra Pradesh",
+                    image_url: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB_Dgm91UOVjH27SVWHj8SZ85rJnfTy6sPp4x3ud1Pf_62kinjaLv0XXdVBj2T1z67sAAIfbSk8dYLzZL2Ybggyj2jRBiEGosLfjvROReS-2Z7JaPCH-GG7XwTr-M1Ea1ikOmuk=s1360-w1360-h1020-rw"
+                },
+                {
+                    name: "Rishik Electricals & Sanitory",
+                    store_type: "Electric Shop",
+                    distance: "1 KM",
+                    address: "GGWH+CXC, Somavaram, Gandhinagar, Bhimavaram, Andhra Pradesh",
+                    image_url: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB8nchFnLT0070WY1hUroG0zBzbFOqsItGZiB8i2xaqAabZ5DibV_mfkw7qbsMhvn_Y16GCXshNKPLLZ1dHyDD0UgGEQkDjp3xpvLg7-lF5ejLUGekfa2QZXFvMlK-NIrltKifI=s1360-w1360-h1020-rw"
+                },
+                {
+                    name: "Vaishnavi Enterprises",
+                    store_type: "Electric Shop",
+                    distance: "2.5 KM",
+                    address: "Rest House Rd, adj. Chamber Of Commerce, Gandhinagar, Bhimavaram, Andhra Pradesh",
+                    image_url: "https://lh3.googleusercontent.com/52EfJFAuDHT3OhmRPBIu0fhiMhTtw_82kh-19R8aIiAoqwVUZTVYL3N87drySTw=s1360-w1360-h1020-rw"
+                },
+                {
+                    name: "Ambica electronics",
+                    store_type: "Electronic Shop",
+                    distance: "3 KM",
+                    address: "PP Rd, opp. RAYMOND SHOP, near CMR, Gandhinagar, Bhimavaram, Andhra Pradesh",
+                    image_url: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB86g_db3jS9rVK-i_81msViMp7i894b9ADkiPNvYd329UbBvpu4e5p4DV2cFR1GBEa5C8w4zb4GH-EAfJzXo8j0ZRobAYfG33eI65l55V6sNN18xUQhSzTWL2a7aKjBHbVc_d7O=s1360-w1360-h1020-rw"
+                },
+                {
+                    name: "Sai Ganesh Electrical Enterprises",
+                    store_type: "Electric Shop",
+                    distance: "5 KM",
+                    address: "Mente vari thota, CPM opposite street, Bhimavaram, Andhra Pradesh",
+                    image_url: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB9HtAxW9GblhJ1s5ToVICewE7J9KRzFb6APCJ5lAuihLKW0Qt-V6S2A05bA827SL3Xs29JPO0F6pS-N1FxG8IELUjXHkBLum0YlV2ehaiVNmPCZIqnGAzsKJupBPw1RI_POBZ96=s1360-w1360-h1020-rw"
+                },
+                {
+                    name: "Bajaj Electronics",
+                    store_type: "Electronic Shop",
+                    distance: "2 KM",
+                    address: " D.No: 3, 14-3, Juvvalapalem Rd, Sivaraopeta, Balusumoodi, Bhimavaram, Andhra Pradesh",
+                    image_url: "https://lh3.googleusercontent.com/p/AF1QipPJhhN5zLrOIHwvGQc00VEkhbsnGlEQ6niX8Y4B=s1360-w1360-h1020-rw"
+                },
+            ];
+        });
+    </script>
+
+</body>
+</html>
