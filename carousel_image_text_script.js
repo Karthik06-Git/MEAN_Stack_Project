@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.remove('show');
         });
         images.forEach(img => {
-            img.classList.remove('show');
+            img.classList.remove('show'); 
         });
         
         // Show current items
