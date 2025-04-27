@@ -90,6 +90,23 @@
             background-color: #fff;
         }
 
+        .product-card #buy-button {
+            width: 50%;
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 550;
+            box-sizing: border-box;
+        }
+
+        .product-card #buy-button:hover {
+            background-color: #45a049;
+        }
 
         .search-bar {
             width: 80%;
@@ -116,6 +133,31 @@
             margin: 0;
             font-size: 0.95rem;
         }
+
+        .quantity-selector {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .quantity-selector button {
+            color: black;
+            background-color: white;
+            padding: 5px 10px;
+            font-size: 20px;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+        .quantity-selector button:hover {
+            color: black;
+            background-color: rosybrown;
+        }
+        .quantity {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
     </style>
 </head>
 <body ng-controller="ProductController">
@@ -144,52 +186,78 @@
                 <h3>{{product.name}}</h3>
                 <p>{{product.type}}</p>
                 <p>Price: {{product.price}}</p>
+
+                <!-- Quantity selector -->
+                <div class="quantity-selector">
+                    <button ng-click="decreaseQuantity(product)">-</button>
+                    <span class="quantity">{{product.quantity}}</span>
+                    <button ng-click="increaseQuantity(product)">+</button>
+                </div>
+                <button id="buy-button">Buy Now</button>
             </div>
         </div>
     </div>
 
 
     <script>
-        app = angular.module('productApp', []);
+        var app = angular.module('productApp', []);
         app.controller('ProductController', function($scope) {
             $scope.products = [
                 {
                     name: "Xiaomi X TV",
                     type: "Television",
                     price: "₹24,990",
-                    image_url: "https://i03.appmifile.com/301_item_in/19/11/2024/93b646d1f13a9404d9958ea77762c9be.png"
+                    image_url: "https://i03.appmifile.com/301_item_in/19/11/2024/93b646d1f13a9404d9958ea77762c9be.png",
+                    quantity: 1
                 },
                 {
                     name: "LG 1.5 Front load Washing Machine",
                     type: "Washing Machine",
                     price: "₹38,499",
-                    image_url: "https://sumaria.in/wp-content/uploads/2023/10/FHD1107STB.jpg"
+                    image_url: "https://sumaria.in/wp-content/uploads/2023/10/FHD1107STB.jpg",
+                    quantity: 1
                 },
                 {
                     name: "Voltas 1 Ton 3 Star Window AC",
                     type: "Air Conditioner",
                     price: "₹24,790",
-                    image_url: "https://5.imimg.com/data5/UD/CD/UD/ANDROID-2577822/prod-20200725-2212247928036451076505197-jpg.jpg"
+                    image_url: "https://5.imimg.com/data5/UD/CD/UD/ANDROID-2577822/prod-20200725-2212247928036451076505197-jpg.jpg",
+                    quantity: 1
                 },
                 {
                     name: "Samsung 1 ton 5 star AC",
                     type: "Air Conditioner",
                     price: "₹23,999",
-                    image_url: "https://5.imimg.com/data5/IC/LW/MY-13284835/samsung-1-5ton-3star-split-ac.jpg"
+                    image_url: "https://5.imimg.com/data5/IC/LW/MY-13284835/samsung-1-5ton-3star-split-ac.jpg",
+                    quantity: 1
                 },
                 {
                     name: "Samsung 32-inch Smart LED TV",
                     type: "Television",
                     price: "₹15,999",
-                    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI0aX74AWoypKkFEN9BnBhcOY2dhbh7x76PA&s"
+                    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI0aX74AWoypKkFEN9BnBhcOY2dhbh7x76PA&s",
+                    quantity: 1
                 },
                 {
                     name: "IFB Frontload Washing Machine",
                     type: "Washing Machine",
                     price: "₹25,990",
-                    image_url: "https://mediakbs.s3.ap-south-1.amazonaws.com/uploads/all/B0CB1FS1WR"
+                    image_url: "https://mediakbs.s3.ap-south-1.amazonaws.com/uploads/all/B0CB1FS1WR",
+                    quantity: 1
                 }
             ];
+
+             // Increase quantity function
+             $scope.increaseQuantity = function(product) {
+                product.quantity++;
+            };
+
+            // Decrease quantity function
+            $scope.decreaseQuantity = function(product) {
+                if (product.quantity > 1) {
+                    product.quantity--;
+                }
+            };
         });
     </script>
 
